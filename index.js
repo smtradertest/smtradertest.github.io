@@ -48,3 +48,5 @@ document.addEventListener("DOMContentLoaded", function() {
         observer.observe(section);
     });
 });
+
+document.getElementById('current-year').textContent = new Date().getFullYear();

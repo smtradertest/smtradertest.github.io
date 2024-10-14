@@ -444,6 +444,10 @@ footer {
     font-size: 0.9em;
 }
 
+.address {
+    font-style: normal;
+}
+
 /* Responsive styles */
 @media (max-width: 1024px) {
     .menu {
