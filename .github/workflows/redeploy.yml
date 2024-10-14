@@ -1,7 +1,7 @@
 name: Redeploy to GitHub Pages
 
 on:
-  workflow_dispatch:   # Trigger manually
+  workflow_dispatch:
 
 jobs:
   deploy:
@@ -10,6 +10,11 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+
+      - name: Display GITHUB_TOKEN permissions
+        run: |
+          echo "Token permissions:"
+          curl -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" https://api.github.com/user
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
@@ -22,3 +27,4 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: main
           publish_dir: ./src
+
