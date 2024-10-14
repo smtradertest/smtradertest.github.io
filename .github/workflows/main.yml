@@ -1,16 +1,22 @@
-name: main
+name: Deploy to GitHub Pages
 
 on:
   push:
     branches:
-      - main
+      - main  # Trigger on push to main branch
   workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: checkout
+      - name: Checkout code
         uses: actions/checkout@v4
-      - name: setup node
+
+      - name: Setup Node.js
         uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
