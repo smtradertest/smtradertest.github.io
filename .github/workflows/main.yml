@@ -1,4 +1,4 @@
-name: main
+name: Deploy to GitHub Pages
 
 on:
   push:
@@ -7,16 +7,15 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: checkout
+      - name: Checkout code
         uses: actions/checkout@v4
-      - name: setup node
-        uses: actions/setup-node@v4
+
+      # Deploy to GitHub Pages, assuming your static files are in the 'public' directory
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          node-version: "20"
-      - name: npm install
-        run: npm install
-      - name: npm build
-        run: npm run build
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./src  # Replace this with the directory that contains your HTML, CSS, and JS files
