@@ -426,10 +426,6 @@ footer {
     transition: color 0.3s ease;
 }
 
-.contact-info-link:hover {
-    color: #0085FE;
-}
-
 .contact-info li {
     margin-bottom: 8px;
     font-size: 18px;
